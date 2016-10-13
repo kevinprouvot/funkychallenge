@@ -77,4 +77,12 @@ public class Battle {
 	public Grid getGrid() {
 		return this.grid;
 	}
+	
+	public Boolean containPlayerWithIp(String targetIp) {
+		return players.stream().anyMatch(player -> player.getIp().equals(targetIp));
+	}
+	
+	public boolean isActive() {
+		return EBattleStatus.ACTIVE.equals(status);
+	}
 }
