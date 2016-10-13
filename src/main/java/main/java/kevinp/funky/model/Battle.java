@@ -25,6 +25,7 @@ public class Battle {
 	private static final Integer maxPlayers = 2;
 
 	public Battle(Integer id, Player player) {
+		this.id = id;
 		status = EBattleStatus.WAITING;
 		startTime = 0;
 		endTime = 0;
@@ -45,7 +46,7 @@ public class Battle {
 			}
 			else {
 				players.add(player);
-				LOGGER.log(Level.FINE, "Player [{0}] joined Battle [{1}]", new Object[] {player.getIp(), id});
+				LOGGER.log(Level.INFO, "Player [{0}] joined Battle [{1}]", new Object[] {player.getIp(), id});
 				if (players.size() == maxPlayers) {
 					startBattle();
 				}
@@ -57,7 +58,7 @@ public class Battle {
 	}
 
 	private void startBattle() {
-		LOGGER.log(Level.FINE, "Battle [{0}] started", id);
+		LOGGER.log(Level.INFO, "Battle [{0}] started", id);
 		
 		startTime = Calendar.getInstance().getTimeInMillis();
 		grid = new Grid(gridMaxX, gridMaxY);
