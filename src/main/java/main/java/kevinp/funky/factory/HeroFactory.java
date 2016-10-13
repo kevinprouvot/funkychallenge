@@ -1,11 +1,15 @@
 package main.java.kevinp.funky.factory;
 
 import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import main.java.kevinp.funky.model.Battle;
 import main.java.kevinp.funky.model.Hero;
 
 public class HeroFactory {
+	
+	private static Logger LOGGER = Logger.getLogger(HeroFactory.class.getName());
 
 	private static HeroFactory instance;
 	
@@ -14,6 +18,7 @@ public class HeroFactory {
 	private final static Integer MAX_HP = 10; 
 	
 	private HeroFactory() {
+		LOGGER.info("HeroFactory Initialisation");
 		randomGenerator = new Random();
 	};
 	
@@ -25,6 +30,7 @@ public class HeroFactory {
 	}
 	
 	public Hero buildHero(Battle battle) {
+		LOGGER.log(Level.FINE, "Building Hero for Battle [{0}]", battle.getId());
 		Integer randomX = randomGenerator.nextInt(battle.getGrid().getMaxX());
 		Integer randomY = randomGenerator.nextInt(battle.getGrid().getMaxY());
 
