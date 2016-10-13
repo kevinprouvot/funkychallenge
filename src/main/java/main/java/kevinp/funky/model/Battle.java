@@ -19,6 +19,7 @@ public class Battle {
 	private List<Player> players;
 	private Grid grid;
 
+	//TODO move this constants in a propertie file
 	private static final Integer gridMaxX = 100;
 	private static final Integer gridMaxY = 100;
 	private static final Integer maxPlayers = 2;

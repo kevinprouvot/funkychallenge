@@ -15,6 +15,7 @@ public class HeroFactory {
 	
 	private Random randomGenerator;
 	
+	//TODO move this constant in a propertie file
 	private final static Integer MAX_HP = 10; 
 	
 	private HeroFactory() {
