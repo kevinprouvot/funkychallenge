@@ -36,9 +36,10 @@ public class Battle {
 	 * Won't add a player if he is already in the Battle
 	 * @param player
 	 */
+	//TODO Move this logic inside a service
 	public void addPlayer(Player player) {
 		if (EBattleStatus.WAITING.equals(status)) {
-			if(isPlayerAlreadyinGame(player)) {
+			if(containPlayerWithIp(player.getIp())) {
 				LOGGER.log(Level.WARNING, "Player [{0}] is already is Battle [{1}]", new Object[] {player.getIp(), id});
 			}
 			else {
@@ -52,10 +53,6 @@ public class Battle {
 		else {
 			LOGGER.log(Level.WARNING, "Player [{0}] fail to join Battle [{1}]. Battle isn't WAITING", new Object[] {player.getIp(), id});
 		}
-	}
-	
-	private Boolean isPlayerAlreadyinGame(Player player) {
-		return players.stream().anyMatch(currentPlayer -> player.getIp().equals(player.getIp()));
 	}
 
 	private void startBattle() {

@@ -32,6 +32,7 @@ public class Player {
 		this.moveIntent.setDirection(direction);
 	}
 	
+	//TODO move this logic inside a service
 	public void move(long battleTime, Grid grid) {
 		hero.move(battleTime, grid, this.moveIntent);
 		

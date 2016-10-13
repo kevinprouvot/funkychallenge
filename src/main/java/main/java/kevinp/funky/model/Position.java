@@ -26,6 +26,7 @@ public class Position {
 		this.y = y;
 	}
 	
+	//TODO move this logic inside a service
 	public void move(long battleTime, MoveIntent moveIntend, Grid grid) {
 		if (moveIntend.getDirecton() != null) {
 			switch (moveIntend.getDirecton()) {

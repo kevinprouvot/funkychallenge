@@ -34,6 +34,7 @@ public class Hero {
 		return this.battleId;
 	}
 	
+	//TODO Move this logic inside a service
 	public void move(long battleTime, Grid grid, MoveIntent moveIntend) {
 		position.move(battleTime, moveIntend, grid);
 	}
