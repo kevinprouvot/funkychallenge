@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import main.java.kevinp.funky.core.BattleService;
+
 /**
  * This end point allows the user to join a random battle. As soon as the number
  * of expected players is reach. It will start the battle.
@@ -21,7 +23,7 @@ public class BattleRestService extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
-		response.getWriter().println("Battle end point");
+		BattleService.getInstance().join(request.getRemoteAddr());
 	}
 
 }
