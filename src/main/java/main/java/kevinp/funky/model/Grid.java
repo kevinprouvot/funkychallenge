@@ -1,5 +1,13 @@
 package main.java.kevinp.funky.model;
 
+/**
+ * Grid store information about the battlefield.
+ * For the moment, only size of the grid is store.
+ * 
+ * In the future, information of obstacles can be store on each tiles of the grid.
+ * @author knprouvot
+ *
+ */
 public class Grid {
 	private Integer maxX;
 	private Integer maxY;

@@ -27,6 +27,11 @@ private static BattleFactory instance;
 		return instance;
 	}
 	
+	/**
+	 * buildBattle method is in charge on battle creation.
+	 * It will be responsible for generating his id.
+	 * For the moment, the id is created from a counter, but it can be improved
+	 */
 	public synchronized Battle buildBattle(Player player) {
 		LOGGER.log(Level.FINE, "Building battle [{0}]", counter);
 		Battle battle = new Battle(counter, player);

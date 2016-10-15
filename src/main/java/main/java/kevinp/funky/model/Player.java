@@ -1,5 +1,11 @@
 package main.java.kevinp.funky.model;
 
+/**
+ * A Player represent anyone who is playing the game.
+ * Each player is identified by an IP address.
+ * @author knprouvot
+ *
+ */
 public class Player {
 
 	private String ip;

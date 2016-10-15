@@ -1,5 +1,14 @@
 package main.java.kevinp.funky.model;
 
+/**
+ * A Position store coordinates of a hero.
+ * It can be used in the future to store position of anything else.
+ * 
+ * At the moment, a Position is responsible of his movement.
+ * Logic around movement might be moved in a service in the future.
+ * @author knprouvot
+ *
+ */
 public class Position {
 
 	private Integer x;
@@ -26,7 +35,6 @@ public class Position {
 		this.y = y;
 	}
 	
-	//TODO move this logic inside a service
 	public void move(long battleTime, MoveIntent moveIntend, Grid grid) {
 		if (moveIntend.getDirecton() != null) {
 			switch (moveIntend.getDirecton()) {

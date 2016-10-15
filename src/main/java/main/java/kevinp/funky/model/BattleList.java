@@ -3,6 +3,12 @@ package main.java.kevinp.funky.model;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * A battle list object which store battles.
+ * The idea is to gather all methods related to Battle manipulations.
+ * @author knprouvot
+ *
+ */
 public class BattleList {
 
 	private List<Battle> battleList;

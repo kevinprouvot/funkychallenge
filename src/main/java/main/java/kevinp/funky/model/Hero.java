@@ -1,5 +1,12 @@
 package main.java.kevinp.funky.model;
 
+/**
+ * Hero class represent a hero in the game.
+ * A Hero is link to a player, and a player can have multiple hero.
+ * This way, we can store a history of each hero played by any player
+ * @author knprouvot
+ *
+ */
 public class Hero {
 	Integer battleId;
 	Integer hp;

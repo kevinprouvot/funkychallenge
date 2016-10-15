@@ -11,19 +11,30 @@ import main.java.kevinp.funky.model.Battle;
 import main.java.kevinp.funky.model.BattleList;
 import main.java.kevinp.funky.model.Player;
 
+/**
+ * BattleService is responsible of the interactions between Players and Battles
+ * It also handle pools of battles.
+ * @author knprouvot
+ *
+ */
 public class BattleService {
 
 	private static Logger LOGGER = Logger.getLogger(BattleService.class.getName());
 
+	/**QueuedBattle awaits for players to join*/
 	private volatile Battle queuedBattle;
 
+	/** BattlePool store every battle currently active**/
 	private volatile BattleList battlePool;
 
 	//TODO Add History
+	/** Once a battle is finished, it is stored in the battleHistory list,
+	 * In the future, persisting battles in the database might be a better solution*/
 	private volatile BattleList battleHistory;
 
 	private static BattleService instance;
 
+	/** List of all the players. This list might be persisted in the database in the future */
 	private static List<Player> players;
 
 	private BattleService() {
@@ -40,6 +51,10 @@ public class BattleService {
 		return instance;
 	}
 
+	/**
+	 * Join method will check that the player is not in an active game already.
+	 * If not, it will add the player to the queued battle
+	 */
 	public synchronized void join(String ip) {
 		if (!battlePool.containPlayerWithIp(ip)) {
 			Player player = getPlayer(ip);
@@ -49,6 +64,10 @@ public class BattleService {
 		}
 	}
 
+	/**
+	 * getPlayer method will try to fetch a player from the player list.
+	 * If no player exists already using this ip, il will create a new one
+	 */
 	private Player getPlayer(String ip) {
 		LOGGER.log(Level.FINE, "Loading information about player [{0}]", ip);
 		Optional<Player> currentPlayer = players.stream().filter(player -> player.getIp().equals(ip)).findFirst();
@@ -63,6 +82,11 @@ public class BattleService {
 		}
 	}
 
+	/**
+	 * This method will checked that a queuedBattle is instantiated in order to add the player to it.
+	 * If no queudBattle is instantiated, it will create a new one with the player on it.
+	 * @param player
+	 */
 	private void addPlayerToQueuedBattle(Player player) {
 		LOGGER.log(Level.FINE, "Queuing Player [{0}] ", player.getIp());
 		if (queuedBattle == null) {

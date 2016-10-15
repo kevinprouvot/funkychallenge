@@ -8,6 +8,11 @@ import java.util.logging.Logger;
 
 import main.java.kevinp.funky.factory.HeroFactory;
 
+/**
+ * 
+ * @author knprouvot
+ *
+ */
 public class Battle {
 
 	private static Logger LOGGER = Logger.getLogger(Battle.class.getName());
@@ -38,7 +43,6 @@ public class Battle {
 	 * Won't add a player if he is already in the Battle
 	 * @param player
 	 */
-	//TODO Move this logic inside a service
 	public void addPlayer(Player player) {
 		if (EBattleStatus.WAITING.equals(status)) {
 			if(containPlayerWithIp(player.getIp())) {
@@ -61,6 +65,7 @@ public class Battle {
 		LOGGER.log(Level.INFO, "Battle [{0}] started", id);
 		
 		startTime = Calendar.getInstance().getTimeInMillis();
+		//TODO Create a grid factory
 		grid = new Grid(gridMaxX, gridMaxY);
 		status = EBattleStatus.ACTIVE;
 		for (Player player : players) {

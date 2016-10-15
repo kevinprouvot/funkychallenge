@@ -8,7 +8,7 @@ package main.java.kevinp.funky.model;
  * 
  * Note: A Battle is created when a player join and there is no available battle.
  * This means that a battle cannot be empty.
- * It can be improved by adding more statuses if required
+ * It can be improved by adding more statuses if required.
  * 
  * @author knprouvot
  *

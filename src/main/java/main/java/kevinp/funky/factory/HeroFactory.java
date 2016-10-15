@@ -7,6 +7,9 @@ import java.util.logging.Logger;
 import main.java.kevinp.funky.model.Battle;
 import main.java.kevinp.funky.model.Hero;
 
+/**
+ * HeroFactory is responsible of Hero creation
+ */
 public class HeroFactory {
 	
 	private static Logger LOGGER = Logger.getLogger(HeroFactory.class.getName());
