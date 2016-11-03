@@ -1,6 +1,7 @@
 package main.java.kevinp.funky.model;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -14,7 +15,7 @@ public class BattleList {
 	private List<Battle> battleList;
 	
 	public BattleList() {
-		battleList = new ArrayList<>();
+		battleList = Collections.synchronizedList(new ArrayList<>());
 	}
 	
 	public boolean containPlayerWithIp(String targetIp) {
