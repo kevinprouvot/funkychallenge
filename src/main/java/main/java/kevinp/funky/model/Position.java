@@ -35,9 +35,8 @@ public class Position {
 		this.y = y;
 	}
 	
-	public void move(long battleTime, MoveIntent moveIntend, Grid grid) {
-		if (moveIntend.getDirecton() != null) {
-			switch (moveIntend.getDirecton()) {
+	public void move(long battleTime, EDirection direction, Grid grid) {
+			switch (direction) {
 			case LEFT:
 				if (x - 1 >= 0) {
 					x--;
@@ -62,7 +61,5 @@ public class Position {
 				}
 				break;
 			}
-			moveIntend.reset(battleTime);
-		}
 	}
 }

@@ -10,12 +10,10 @@ public class Player {
 
 	private String ip;
 	private Hero hero;
-	private MoveIntent moveIntent;
 	
 	public Player(String ip) {
 		this.ip = ip;
 		hero = Hero.emptyHero;
-		moveIntent = new MoveIntent();
 	}
 	
 	public void assignHero(Hero hero) {
@@ -34,15 +32,8 @@ public class Player {
 		return hero.getPosition();
 	}
 	
-	public void setMoveIntent(EDirection direction) {
-		this.moveIntent.setDirection(direction);
-	}
-	
-	//TODO move this logic inside a service
-	public void move(long battleTime, Grid grid) {
-		hero.move(battleTime, grid, this.moveIntent);
-		
-		moveIntent.reset(battleTime);
+	public void move(long battleTime, Grid grid, EDirection direction) {
+		hero.move(battleTime, grid, direction);
 	}
 	
 	public Integer getBattleId() {
